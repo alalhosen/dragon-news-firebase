@@ -18,10 +18,10 @@ const Login = () => {
               <a className="link link-hover">Forgot password?</a>
             </div>
             <button className="btn btn-neutral mt-4">Login</button>
-            <p className="font-semibold text-center pt-5">
-              Dont't Have An Account ?{" "}
+            <p className="font-semibold text-center pt-5">  
+              Dont't Have An Account ?
               <Link className="text-secondary" to="/auth/register">
-                Register
+                 Register
               </Link>
             </p>
           </fieldset>
