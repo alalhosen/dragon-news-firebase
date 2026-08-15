@@ -19,7 +19,7 @@ const Login = () => {
             </div>
             <button className="btn btn-neutral mt-4">Login</button>
             <p className="font-semibold text-center pt-5">  
-              Dont't Have An Account ?
+              Dont't Have An Account?{" "}
               <Link className="text-secondary" to="/auth/register">
                  Register
               </Link>
