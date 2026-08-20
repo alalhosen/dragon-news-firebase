@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
-import user from "../assets/user.png";
+import userIcom from "../assets/user.png";
 import { AuthContext } from "../provider/AuthProvider";
 const Navbar = () => {
   const { user } = use(AuthContext);
@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavLink to="/career">Career</NavLink>
       </div>
       <div className="login-btn flex gap-5">
-        <img src={user} alt="" />
+        <img src={userIcom} alt="" />
         <Link to="/auth/login" className="btn btn-primary px-10 ">
           Login
         </Link>
