@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = use(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     console.log(e.target);
@@ -11,6 +13,16 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   };
   return (
     <div className="flex justify-center min-h-screen items-center">
@@ -18,7 +30,7 @@ const Register = () => {
         <h2 className="font-semibold text-2xl text-center">
           Register your account
         </h2>
-        <from onSubmit={handleRegister} className="card-body">
+        <form onSubmit={handleRegister} className="card-body">
           <fieldset className="fieldset">
             {/* Name */}
             <label className="label">Name</label>
@@ -27,6 +39,7 @@ const Register = () => {
               type="text"
               className="input"
               placeholder="Name"
+              required
             />
 
             {/* Photo url */}
@@ -36,6 +49,7 @@ const Register = () => {
               type="email"
               className="input"
               placeholder="Photo url"
+              required
             />
 
             {/* Email */}
@@ -45,6 +59,7 @@ const Register = () => {
               type="email"
               className="input"
               placeholder="Email"
+              required
             />
 
             {/* Password */}
@@ -54,6 +69,7 @@ const Register = () => {
               type="password"
               className="input"
               placeholder="Password"
+              required
             />
 
             {/* Button */}
@@ -67,7 +83,7 @@ const Register = () => {
               </Link>
             </p>
           </fieldset>
-        </from>
+        </form>
       </div>
     </div>
   );
