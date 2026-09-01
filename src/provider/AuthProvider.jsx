@@ -11,6 +11,7 @@ import app from "../firebase/firebase.config";
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   console.log(user);
 
@@ -19,7 +20,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const signIn = (email, password) => {
-    return signInWithEmailAndPassword(auth,email,password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
@@ -40,7 +41,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     createUser,
     logOut,
-    signIn
+    signIn,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };
