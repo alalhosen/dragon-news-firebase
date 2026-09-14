@@ -10,6 +10,8 @@ const NewsCard = ({ news }) => {
 
   return (
     <div className="card bg-base-100 shadow-md mb-6">
+
+      
       {/* Author + Share */}
       <div className="flex bg-base-200 justify-between items-center p-4">
         <div className="flex items-center gap-3">
