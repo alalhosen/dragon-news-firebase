@@ -5,7 +5,7 @@ const LatestNews = () => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    fetch("/public/news.json")
+    fetch("/news.json")
       .then((res) => res.json())
       .then((data) => {
         setNews(data);
